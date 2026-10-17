@@ -56,7 +56,7 @@ test('at 320px the top bar stays within two rows and no page scrolls sideways', 
 	).toBeLessThanOrEqual(2);
 
 	// Client-side nav clicks, not page.goto() - a hard navigation to
-	// /audit-log is its own dedicated test below (#272), and this loop is
+	// /audit-log is its own test at the top of journey.spec.ts (#272), and this loop is
 	// about the mobile layout, not routing. Via the bottom tab bar: at 320px
 	// it's the only nav displayed.
 	for (const linkName of ['Secrets', 'Consumers', 'Audit log', 'Settings']) {
