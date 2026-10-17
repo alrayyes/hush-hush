@@ -52,7 +52,7 @@ test('the audit log shows the real events and pages, flips and sizes through the
 		const nav = page.getByRole('navigation', { name: 'Primary', exact: true });
 		// #323: the object-id and actor filters are select boxes populated
 		// from what actually appears in the log, not free text - this
-		// exercises both against the real entries the flow above already
+		// exercises both against the real entries the seeding above
 		// produced (a create + read + update for audit_spec_secret,
 		// each carrying a real actor).
 		await nav.getByRole('link', { name: 'Audit log' }).click();
