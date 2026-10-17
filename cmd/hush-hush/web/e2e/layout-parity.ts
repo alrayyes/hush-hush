@@ -6,7 +6,7 @@
 //
 // A difference that is meant has to be named in the spec, with why. It is
 // then visible in review, not found later by a user.
-import { expect, type Page } from '@playwright/test';
+import { expect, type Locator, type Page } from '@playwright/test';
 
 export const PHONE = { width: 390, height: 844 };
 export const DESKTOP = { width: 1280, height: 800 };
@@ -200,5 +200,15 @@ export async function expectNavParity(page: Page) {
 		);
 	} finally {
 		await checker.close();
+	}
+}
+
+// 44x44px is the minimum touch target (WCAG 2.5.5): each control is measured
+// where it is drawn, so a utility class that shrinks one fails here.
+export async function expectTouchTargets(controls: Locator[]) {
+	for (const control of controls) {
+		const box = await control.boundingBox();
+		expect(box?.width).toBeGreaterThanOrEqual(44);
+		expect(box?.height).toBeGreaterThanOrEqual(44);
 	}
 }
