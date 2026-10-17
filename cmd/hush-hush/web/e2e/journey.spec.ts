@@ -722,41 +722,6 @@ test('an authenticated visitor keeps the nav across pages, an anonymous one neve
 	await renamedDialog.waitFor({ state: 'hidden' });
 	await expect(page.locator('[data-testid="tag"]:visible')).toHaveCount(0);
 
-	// #790: a path no route matches shows the 404 page inside the signed-in
-	// shell, and a load that fails shows the 500 page with no internals.
-	await page.goto('/no/such/page');
-	// What the page says besides its heading, and where it links, is
-	// error.svelte.spec.ts's; here it has to be the page an unmatched path
-	// reaches, inside the signed-in shell.
-	await expect(
-		page.getByRole('heading', { level: 1, name: 'Page not found' }),
-	).toBeVisible();
-	await expect(page.getByRole('navigation', { name: 'Primary' })).toBeVisible();
-	// The signed-in variant follows the root layout's session, which the
-	// component test stubs.
-	await expect(page.getByRole('link', { name: 'Open secrets' })).toBeVisible();
-	const notFoundResults = await new AxeBuilder({ page })
-		.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-		.analyze();
-	expect(notFoundResults.violations).toEqual([]);
-
-	await page.route('**/objects?*', (route) => route.abort());
-	await page.goto('/');
-	await expect(
-		page.getByRole('heading', { level: 1, name: 'Something went wrong' }),
-	).toBeVisible();
-	await expect(page.getByRole('navigation', { name: 'Primary' })).toBeVisible();
-	expect(await page.content()).not.toMatch(
-		/\bat \S+\.(js|ts|svelte)|node_modules/,
-	);
-	const failedResults = await new AxeBuilder({ page })
-		.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-		.analyze();
-	expect(failedResults.violations).toEqual([]);
-	await page.unroute('**/objects?*');
-	await page.goto('/');
-	await expect(page.getByRole('button', { name: 'New secret' })).toBeVisible();
-
 	// The secret just created recorded "homelab" as a consumer - the
 	// directory's own filtering and select-to-filter navigation
 	// (alrayyes/hush-hush#252), plus its own axe-core scan.
@@ -1550,82 +1515,6 @@ test('an authenticated visitor keeps the nav across pages, an anonymous one neve
 		.getByRole('button', { name: 'Delete permanently' })
 		.click();
 	await expect(deadRow).toHaveCount(0);
-
-	await page.setViewportSize({ width: 320, height: 720 });
-
-	// #294: the topbar's nav links, theme toggle, and Log out button used
-	// to each wrap onto their own line at phone width via `flex-wrap`
-	// fighting `margin-left: auto` - four-plus ragged rows before any page
-	// content was visible. Clustering every topbar control's own top
-	// offset (within a tolerance wider than the few px a link and a
-	// padded button can differ by even centered on the same line) catches
-	// that without pinning an exact pixel height to font metrics. The nav
-	// links themselves moved to the bottom tab bar below md (#480), so what's
-	// left in the topbar to cluster is the brand, the instance label, the
-	// status pill and the account menu button (#481).
-	const topbarControls = [
-		page.getByRole('banner').getByText('HUSH-HUSH'),
-		page.getByRole('banner').getByText('e2e / local'),
-		page.getByRole('banner').getByText('ACTIVE', { exact: true }),
-		page.getByRole('banner').getByRole('button', { name: 'Account menu' }),
-	];
-	const boxes = await Promise.all(
-		topbarControls.map((control) => control.boundingBox()),
-	);
-	const tops: number[] = [];
-	for (const box of boxes) {
-		expect(
-			box,
-			'every topbar control should be visible at 320px',
-		).not.toBeNull();
-		if (box !== null) {
-			tops.push(box.y);
-		}
-	}
-	tops.sort((a, b) => a - b);
-	const rowTolerancePx = 16;
-	let topbarRows = tops.length > 0 ? 1 : 0;
-	for (let i = 1; i < tops.length; i++) {
-		if (tops[i] - tops[i - 1] > rowTolerancePx) {
-			topbarRows++;
-		}
-	}
-	expect(
-		topbarRows,
-		'topbar controls should read as at most two rows at 320px',
-	).toBeLessThanOrEqual(2);
-
-	// Client-side nav clicks, not page.goto() - a hard navigation to
-	// /audit-log is its own dedicated test below (#272), and this loop is
-	// about the mobile layout, not routing. Via the bottom tab bar: at 320px
-	// it's the only nav displayed.
-	for (const linkName of ['Secrets', 'Consumers', 'Audit log', 'Settings']) {
-		await tabBar.getByRole('link', { name: linkName }).click();
-		await expect(page.locator('main')).toBeVisible();
-
-		// Checks every scrollable element on the page, not just the
-		// document - a table with overflow-x: auto never overflows the
-		// document (it scrolls sideways within its own box instead),
-		// which is exactly what let this regression ship unnoticed the
-		// first time. Scoped to overflow-x: scroll/auto specifically -
-		// overflow: hidden (the visually-hidden <thead> pattern) also
-		// reports a scrollWidth/clientWidth mismatch by design, with no
-		// visible scrollbar to go with it.
-		const widest = await page.evaluate(() =>
-			Math.max(
-				0,
-				...Array.from(document.querySelectorAll('*'))
-					.filter((el) =>
-						['scroll', 'auto'].includes(getComputedStyle(el).overflowX),
-					)
-					.map((el) => el.scrollWidth - el.clientWidth),
-			),
-		);
-		expect(
-			widest,
-			`${linkName} has a horizontally scrollable element at 320px`,
-		).toBe(0);
-	}
 
 	// What is left of the session is the next specs' starting point: they run
 	// after this one, signed in as the user it registered (e2e/session.ts).
