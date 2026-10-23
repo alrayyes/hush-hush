@@ -14,7 +14,7 @@
 # ownership into /data for exactly this reason - no separate chown step.
 services:
   hush-hush:
-    image: ghcr.io/alrayyes/hush-hush:3.38.0@sha256:d7545e0d89b6d448db96d0ddebaaad212836d827ce16629ff6660e2a2256e221
+    image: ghcr.io/alrayyes/hush-hush:3.38.1@sha256:5c404b7c8056291f50746863739d6ad973bf6b6d4426f4ff63a4658aeeca0209
     restart: unless-stopped
     ports:
       - "8080:8080"
