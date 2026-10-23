@@ -50,7 +50,7 @@ jobs:
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
           go-version: "1.27.2"
-      - uses: alrayyes/advisory-scan@9801551dad16ce63853b2babfda885365d368232 # v0.3.0
+      - uses: alrayyes/advisory-scan@c9f794de4354b870e159510f036779baf20f4a2f # v0.3.1
         with:
           mode: scan
           setup: bun install --frozen-lockfile --ignore-scripts
