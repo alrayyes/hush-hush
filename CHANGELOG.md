@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.38.2](https://github.com/alrayyes/hush-hush/compare/v3.38.1...v3.38.2) (2026-10-25)
+
+
+### Bug Fixes
+
+* bump github.com/getkin/kin-openapi ([#1051](https://github.com/alrayyes/hush-hush/issues/1051)) ([f00d8cb](https://github.com/alrayyes/hush-hush/commit/f00d8cb961cda6ced6bdb07e0f20a4b6d6e55fb7))
+* bump the minor-and-patch group across 1 directory with 12 updates ([#1053](https://github.com/alrayyes/hush-hush/issues/1053)) ([7a80d9c](https://github.com/alrayyes/hush-hush/commit/7a80d9c44c30e2ee9307c2999fcc33c7fbbbfa90))
+* **web:** start the consumer more-button's accessible name with its visible text ([#1058](https://github.com/alrayyes/hush-hush/issues/1058)) ([2f634ff](https://github.com/alrayyes/hush-hush/commit/2f634fff140f208e1e028453e27dfc216611dbaa)), closes [#1057](https://github.com/alrayyes/hush-hush/issues/1057)
+
 ## [3.38.1](https://github.com/alrayyes/hush-hush/compare/v3.38.0...v3.38.1) (2026-10-16)
 
 
