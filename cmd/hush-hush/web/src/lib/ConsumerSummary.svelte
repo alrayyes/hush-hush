@@ -32,7 +32,7 @@ const summary = $derived(summariseConsumers(consumers));
 				variant="outline"
 				size="sm"
 				class={touch ? 'min-h-11 min-w-11' : 'h-6 px-2 text-xs'}
-				aria-label="Show all {summary.shown.length + summary.more} consumers of {name}"
+				aria-label="+{summary.more} more: show all {summary.shown.length + summary.more} consumers of {name}"
 				onclick={onmore}
 			>
 				+{summary.more} more
