@@ -688,7 +688,9 @@ test('a card with many consumers offers them all in a dialog that counts them', 
 	});
 
 	await cards(screen)
-		.getByRole('button', { name: 'Show all 100 consumers of many_consumers' })
+		.getByRole('button', {
+			name: '+98 more: show all 100 consumers of many_consumers',
+		})
 		.click();
 
 	const dialog = screen.getByRole('dialog', {
