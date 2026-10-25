@@ -454,7 +454,7 @@ async function confirmPurgeConsumerToken() {
 							{/if}
 						</div>
 
-						<Dialog.Footer>
+						<Dialog.Footer class="mt-4">
 							<Dialog.Close class={buttonVariants({ variant: 'outline' })}>
 								Cancel
 							</Dialog.Close>
@@ -644,7 +644,7 @@ async function confirmPurgeConsumerToken() {
 								{/if}
 							</div>
 
-							<Dialog.Footer>
+							<Dialog.Footer class="mt-4">
 								<Dialog.Close class={buttonVariants({ variant: 'outline' })}>
 									Cancel
 								</Dialog.Close>
@@ -832,7 +832,7 @@ async function confirmPurgeConsumerToken() {
 								{/if}
 							</div>
 
-							<Dialog.Footer>
+							<Dialog.Footer class="mt-4">
 								<Dialog.Close class={buttonVariants({ variant: 'outline' })}>
 									Cancel
 								</Dialog.Close>
@@ -988,7 +988,7 @@ async function confirmPurgeConsumerToken() {
 				{/if}
 			</div>
 
-			<Dialog.Footer>
+			<Dialog.Footer class="mt-4">
 				<Dialog.Close class={buttonVariants({ variant: 'outline' })}>Cancel</Dialog.Close>
 				<Button type="submit">Save</Button>
 			</Dialog.Footer>
@@ -1084,7 +1084,7 @@ async function confirmPurgeConsumerToken() {
 					{/if}
 				</div>
 
-				<Dialog.Footer>
+				<Dialog.Footer class="mt-4">
 					<Dialog.Close class={buttonVariants({ variant: 'outline' })}>
 						Cancel
 					</Dialog.Close>
@@ -1163,7 +1163,7 @@ async function confirmPurgeConsumerToken() {
 					{/if}
 				</div>
 
-				<Dialog.Footer>
+				<Dialog.Footer class="mt-4">
 					<Dialog.Close class={buttonVariants({ variant: 'outline' })}>
 						Cancel
 					</Dialog.Close>
