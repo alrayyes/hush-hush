@@ -588,7 +588,7 @@ async function confirmDelete() {
 						{/if}
 					</div>
 
-					<Dialog.Footer>
+					<Dialog.Footer class="mt-4">
 						<Dialog.Close class={buttonVariants({ variant: 'outline' })}>
 							Cancel
 						</Dialog.Close>
