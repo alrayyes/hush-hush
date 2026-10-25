@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.38.4](https://github.com/alrayyes/hush-hush/compare/v3.38.3...v3.38.4) (2026-10-25)
+
+
+### Bug Fixes
+
+* **web:** add a gap above the footer in the remaining form dialogs ([#1063](https://github.com/alrayyes/hush-hush/issues/1063)) ([25268b3](https://github.com/alrayyes/hush-hush/commit/25268b3f418923593d2285ee4511b62574e85e1f)), closes [#1056](https://github.com/alrayyes/hush-hush/issues/1056)
+
 ## [3.38.3](https://github.com/alrayyes/hush-hush/compare/v3.38.2...v3.38.3) (2026-10-25)
 
 
