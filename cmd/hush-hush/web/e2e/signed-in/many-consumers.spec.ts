@@ -207,7 +207,9 @@ test('a hundred consumers and the longest values fit the Secrets and Consumers p
 		await page.setViewportSize({ width: 1280, height: 800 });
 		await page.goto('/');
 		await rowFor('many_consumers')
-			.getByRole('button', { name: 'Show all 100 consumers of many_consumers' })
+			.getByRole('button', {
+				name: '+98 more: show all 100 consumers of many_consumers',
+			})
 			.click();
 		const consumersDialog = page.getByRole('dialog', {
 			name: 'Consumers of many_consumers',
@@ -256,7 +258,7 @@ test('a hundred consumers and the longest values fit the Secrets and Consumers p
 			(someCardBox?.height ?? 0) + 8,
 		);
 		const moreButton = manyCard.getByRole('button', {
-			name: 'Show all 100 consumers of many_consumers',
+			name: '+98 more: show all 100 consumers of many_consumers',
 		});
 		const moreBox = await moreButton.boundingBox();
 		expect(moreBox?.height).toBeGreaterThanOrEqual(44);
