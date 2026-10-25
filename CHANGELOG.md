@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.38.3](https://github.com/alrayyes/hush-hush/compare/v3.38.2...v3.38.3) (2026-10-25)
+
+
+### Bug Fixes
+
+* **web:** add a gap above the footer in the consumers dialogs ([#1055](https://github.com/alrayyes/hush-hush/issues/1055)) ([7607621](https://github.com/alrayyes/hush-hush/commit/76076217e0f908a5c4827badc358b0d2623aeca2)), closes [#1054](https://github.com/alrayyes/hush-hush/issues/1054)
+
 ## [3.38.2](https://github.com/alrayyes/hush-hush/compare/v3.38.1...v3.38.2) (2026-10-25)
 
 
