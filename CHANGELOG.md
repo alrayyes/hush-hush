@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.38.5](https://github.com/alrayyes/hush-hush/compare/v3.38.4...v3.38.5) (2026-10-30)
+
+
+### Bug Fixes
+
+* bump oven/bun ([#1066](https://github.com/alrayyes/hush-hush/issues/1066)) ([60b6244](https://github.com/alrayyes/hush-hush/commit/60b6244472b9d5f01cb497cf7aa8a44da78681a9))
+* bump the minor-and-patch group across 1 directory with 2 updates ([#1068](https://github.com/alrayyes/hush-hush/issues/1068)) ([8085cd1](https://github.com/alrayyes/hush-hush/commit/8085cd1e35227771fd1fd2824729d8f0757ad3e8))
+* bump the minor-and-patch group across 1 directory with 7 updates ([#1071](https://github.com/alrayyes/hush-hush/issues/1071)) ([2e86a7d](https://github.com/alrayyes/hush-hush/commit/2e86a7de2b59ce4e030a5f7669be1635b5679e45))
+* **web:** migrate biome.json to the 2.6.3 schema ([#1072](https://github.com/alrayyes/hush-hush/issues/1072)) ([4eabde1](https://github.com/alrayyes/hush-hush/commit/4eabde177a55e35202b2c953c3cf4085e01b2cea))
+
 ## [3.38.4](https://github.com/alrayyes/hush-hush/compare/v3.38.3...v3.38.4) (2026-10-25)
 
 
