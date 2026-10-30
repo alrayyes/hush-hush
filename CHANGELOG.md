@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.38.6](https://github.com/alrayyes/hush-hush/compare/v3.38.5...v3.38.6) (2026-10-30)
+
+
+### Bug Fixes
+
+* override re2js to 2.9.1 ([#1075](https://github.com/alrayyes/hush-hush/issues/1075)) ([fb3f884](https://github.com/alrayyes/hush-hush/commit/fb3f8844050a2054f2560a6c998176f42a7f7d92))
+
 ## [3.38.5](https://github.com/alrayyes/hush-hush/compare/v3.38.4...v3.38.5) (2026-10-30)
 
 
