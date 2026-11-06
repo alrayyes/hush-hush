@@ -21,7 +21,7 @@
   "devDependencies": {
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
-    "@redocly/cli": "2.71.2",
+    "@redocly/cli": "2.72.1",
     "@stoplight/spectral-cli": "6.17.0",
     "@stoplight/spectral-owasp-ruleset": "2.0.1",
     "lefthook": "2.2.2",
