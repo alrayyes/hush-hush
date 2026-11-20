@@ -47,7 +47,7 @@ jobs:
       # The Go the image ships with, not go.mod's: govulncheck audits whatever
       # standard library it runs on. scripts/test-ci.ts keeps this in step
       # with the Dockerfile.
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
         with:
           go-version: "1.27.2"
       - uses: alrayyes/advisory-scan@c9f794de4354b870e159510f036779baf20f4a2f # v0.3.1
